@@ -9,21 +9,22 @@ Compilation of several sources into one jar to simplify OGG Vorbis files play wi
 
 Example of use:
 
-`// Create OGG Decoder`
-`OggDecoder oggDecoder = new OggDecoder();`
-`// Decode OGG into PCM`
-`InputStream inputStream = new ByteArrayInputStream(bytes);`
-`oggData = oggDecoder.getData(inputStream);`
-`// Load PCM data into buffer`
-`AL10.alBufferData(`
-    `bufferId,`
-    `oggData.channels>1?`
-        `AL10.AL_FORMAT_STEREO16 : AL10.AL_FORMAT_MONO16,`
-    `oggData.data,`
-    `oggData.rate);`
-`if (AL10.alGetError() != AL10.AL_NO_ERROR) {`
-    `//Error check`
-`}`
+    // Create OGG Decoder
+    OggDecoder oggDecoder = new OggDecoder();
+    // Decode OGG into PCM
+    InputStream inputStream = new ByteArrayInputStream(bytes);
+    oggData = oggDecoder.getData(inputStream);
+    // Load PCM data into buffer
+    AL10.alBufferData(
+        bufferId,
+        oggData.channels>1?
+            AL10.AL_FORMAT_STEREO16 : AL10.AL_FORMAT_MONO16,
+        oggData.data,
+        oggData.rate);
+    if (AL10.alGetError() != AL10.AL_NO_ERROR) {
+        //Error check
+    }
+
 
 *Special thanks to jcraft's people and Kevin Glass for this library.*
 
