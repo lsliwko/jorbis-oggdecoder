@@ -31,8 +31,8 @@ Example of use:
 *Special thanks to jcraft's people and Kevin Glass for this library.*
 
 
-Issues in versions 1.0 and 1.1
-—-----------------------------
+Issues in versions 1.0 and 1.1:
 
 Problems decoding lower bit-rates (like 8kHz) - change static ints 4096 everywhere in the code to 512 (all java files) or lower values (64, 128). Unfortunately, the jorbis libs have 4096 block size hardcoded and those classes are used in quite a lot applications. Therefore setting this value dynamically might have unexpected results.
-Thanks to Serkan Ucpinar for note about this!
+
+*Thanks to Serkan Ucpinar for note about this!*
